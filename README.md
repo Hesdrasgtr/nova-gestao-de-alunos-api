@@ -125,7 +125,7 @@ ignorado pelo Git e não deve conter credenciais compartilhadas no repositório.
 | `JWT_SECRET` | Segredo usado para assinar tokens JWT | definir um segredo próprio |
 | `ADMIN_EMAIL` | E-mail do administrador usado pelos testes | `admin@escola.com` |
 | `ADMIN_SENHA` | Senha do administrador usada pelos testes | `admin123` |
-| `ALUNO_EMAIL` | E-mail do aluno usado pelos testes | `junior.alcala@example.com` |
+| `ALUNO_EMAIL` | E-mail do aluno usado pelos testes | `hesdras@example.com` |
 | `ALUNO_SENHA` | Senha do aluno usada pelos testes | `123456` |
 
 A aplicação carrega essas variáveis com `dotenv/config` durante a inicialização.
@@ -215,10 +215,10 @@ para demonstração.
 
 | id                   | nome          | email                       | matrícula | senha  |
 |----------------------|---------------|------------------------------|-----------|--------|
-| `aluno-ana-souza`    | Ana Souza     | ana.souza@example.com       | 2024001   | 123456 |
+| `aluno-hesdras`  | Hesdras | Hesdras@example.com   | 2024001   | 123456 |
 | `aluno-bruno-lima`   | Bruno Lima    | bruno.lima@example.com      | 2024002   | 123456 |
 | `aluno-carla-mendes` | Carla Mendes  | carla.mendes@example.com    | 2024003   | 123456 |
-| `aluno-junior-alcala` | Júnior Alcalá | junior.alcala@example.com   | 2024004   | 123456 |
+| `aluno-Hesdras` | Hesdras | Hesdras@example.com   | 2024004   | 123456 |
 
 ### Disciplinas (`/api/admin/disciplinas`)
 
@@ -232,21 +232,21 @@ para demonstração.
 
 | aluno         | disciplina         |
 |---------------|---------------------|
-| Ana Souza     | Programação Web     |
+| Hesdras     | Programação Web     |
 | Bruno Lima    | Matemática          |
 | Bruno Lima    | História            |
 | Carla Mendes  | Programação Web     |
-| Júnior Alcalá | Matemática          |
+
 
 ### Notas (`/api/admin/notas`)
 
 | aluno         | disciplina         | tipo         | valor |
 |---------------|---------------------|--------------|-------|
-| Ana Souza     | Programação Web     | prova        | 9.2   |
+| Hesdras     | Programação Web     | prova        | 9.2   |
 | Bruno Lima    | Matemática          | prova        | 6.0   |
 | Bruno Lima    | História            | participação | 7.5   |
 | Carla Mendes  | Programação Web     | prova        | 10    |
-| Júnior Alcalá | Matemática          | prova        | 8.5   |
+
 
 ### Trabalhos (`/api/admin/trabalhos`)
 
@@ -254,7 +254,7 @@ para demonstração.
 |---------------|---------------|-------------------------------------------|-------------|
 | Bruno Lima    | História      | Linha do Tempo - Revolução Industrial     | corrigido (nota 8.0) |
 | Carla Mendes  | Programação Web | Landing Page Responsiva                 | entregue    |
-| Júnior Alcalá | Matemática    | Lista de Exercícios 1                     | entregue    |
+
 
 ## Testes e fluxo integrado
 
@@ -297,21 +297,21 @@ curl -X POST http://localhost:3000/api/admin/disciplinas/disciplina-historia/mat
 curl -X POST http://localhost:3000/api/admin/notas \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"alunoId":"aluno-junior-alcala","disciplinaId":"disciplina-matematica","valor":7.8,"tipo":"trabalho"}'
+  -d '{"alunoId":"aluno-Hesdras","disciplinaId":"disciplina-matematica","valor":7.8,"tipo":"trabalho"}'
 
 # Login como aluno (Júnior)
 ALUNO_TOKEN=$(curl -s -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"junior.alcala@example.com","senha":"123456"}' | node -pe 'JSON.parse(require("fs").readFileSync(0)).token')
+  -d '{"email":"Hesdras@example.com","senha":"123456"}' | node -pe 'JSON.parse(require("fs").readFileSync(0)).token')
 
 # Aluno: ver minhas disciplinas
-curl http://localhost:3000/api/alunos/aluno-junior-alcala/disciplinas -H "Authorization: Bearer $ALUNO_TOKEN"
+curl http://localhost:3000/api/alunos/aluno-Hesdras/disciplinas -H "Authorization: Bearer $ALUNO_TOKEN"
 
 # Aluno: ver minhas notas
-curl http://localhost:3000/api/alunos/aluno-junior-alcala/notas -H "Authorization: Bearer $ALUNO_TOKEN"
+curl http://localhost:3000/api/alunos/aluno-Hesdras/notas -H "Authorization: Bearer $ALUNO_TOKEN"
 
 # Aluno: registrar um trabalho
-curl -X POST http://localhost:3000/api/alunos/aluno-junior-alcala/trabalhos \
+curl -X POST http://localhost:3000/api/alunos/aluno-Hesdras/trabalhos \
   -H "Authorization: Bearer $ALUNO_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"disciplinaId":"disciplina-matematica","titulo":"Lista de Exercícios 2"}'

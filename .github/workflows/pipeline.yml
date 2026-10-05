@@ -21,7 +21,7 @@ jobs:
       BASE_URL: http://127.0.0.1:3000
       ADMIN_EMAIL: admin@escola.com
       ADMIN_SENHA: admin123
-      ALUNO_EMAIL: junior.alcala@example.com
+      ALUNO_EMAIL: hesdras@example.com
       ALUNO_SENHA: 123456
 
     services:
@@ -59,12 +59,13 @@ jobs:
           done
 
       - name: Executar testes
-        run: npm test
+        run: npm test > test-report.txt 2>&1
 
-      - name: Publicar relatório
+      - name: Publicar relatório dos testes
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: relatorio-testes
           path: |
+            test-report.txt
             server.log

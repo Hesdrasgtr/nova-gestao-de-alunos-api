@@ -23,9 +23,9 @@ async function seedAdministradores() {
 async function seedAlunos() {
   await Aluno.create([
     {
-      _id: 'aluno-ana-souza',
-      nome: 'Ana Souza',
-      email: 'ana.souza@example.com',
+      _id: 'aluno-hesdras',
+      nome: 'Hesdras',
+      email: 'hesdras@example.com',
       matricula: '2024001',
       senha: SENHA_PADRAO_ALUNO,
     },
@@ -72,13 +72,13 @@ async function seedDisciplinas() {
 async function seedMatriculas() {
   await Matricula.create([
     {
-      _id: 'matricula-ana-matematica',
-      alunoId: 'aluno-ana-souza',
+      _id: 'matricula-hesdras-matematica',
+      alunoId: 'aluno-hesdras',
       disciplinaId: 'disciplina-matematica',
     },
     {
-      _id: 'matricula-ana-programacao',
-      alunoId: 'aluno-ana-souza',
+      _id: 'matricula-hesdras-programacao',
+      alunoId: 'aluno-hesdras',
       disciplinaId: 'disciplina-programacao-web',
     },
     {
@@ -101,17 +101,17 @@ async function seedMatriculas() {
 
 async function seedNotas() {
   await Nota.create([
-  {
-  _id: 'nota-ana-matematica-prova1',
-  alunoId: 'aluno-ana-souza',
-  disciplinaId: 'disciplina-matematica',
-  valor: 8.5,
-  tipo: 'prova',
-  descricao: 'Prova 1 - Álgebra',
-},
     {
-      _id: 'nota-ana-programacao-prova1',
-      alunoId: 'aluno-ana-souza',
+      _id: 'nota-hesdras-matematica-prova1',
+      alunoId: 'aluno-hesdras',
+      disciplinaId: 'disciplina-matematica',
+      valor: 8.5,
+      tipo: 'prova',
+      descricao: 'Prova 1 - Álgebra',
+    },
+    {
+      _id: 'nota-hesdras-programacao-prova1',
+      alunoId: 'aluno-hesdras',
       disciplinaId: 'disciplina-programacao-web',
       valor: 9.2,
       tipo: 'prova',
@@ -147,8 +147,8 @@ async function seedNotas() {
 async function seedTrabalhos() {
   await Trabalho.create([
     {
-      _id: 'trabalho-ana-lista-exercicios-1',
-      alunoId: 'aluno-ana-souza',
+      _id: 'trabalho-hesdras-lista-exercicios-1',
+      alunoId: 'aluno-hesdras',
       disciplinaId: 'disciplina-matematica',
       titulo: 'Lista de Exercícios 1',
       descricao: 'Resolução dos exercícios de 1 a 20 do capítulo 2.',
