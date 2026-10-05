@@ -3,14 +3,19 @@ name: Testes da API gestão de alunos
 on:
   push:
     branches: [main]
+
   pull_request:
     branches: [main]
+
+  workflow_dispatch:
+
   schedule:
     - cron: '44 7 * * 5'
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     env:
       MONGODB_URI: mongodb://127.0.0.1:27017/nova-gestao-de-alunos-test
       BASE_URL: http://127.0.0.1:3000
@@ -55,3 +60,11 @@ jobs:
 
       - name: Executar testes
         run: npm test
+
+      - name: Publicar relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes
+          path: |
+            server.log
