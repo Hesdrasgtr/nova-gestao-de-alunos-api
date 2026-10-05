@@ -606,7 +606,7 @@ components:
       description: Id do aluno
       schema:
         type: string
-      example: aluno-ana-souza
+      example: aluno-Hesdras
     AlunoIdPath:
       name: alunoId
       in: path
@@ -614,7 +614,7 @@ components:
       description: Id do aluno
       schema:
         type: string
-      example: aluno-ana-souza
+      example: aluno-Hesdras
     AlunoIdQuery:
       name: alunoId
       in: query
@@ -622,7 +622,7 @@ components:
       description: Filtra pelo id do aluno
       schema:
         type: string
-      example: aluno-ana-souza
+      example: aluno-Hesdras
     DisciplinaId:
       name: id
       in: path
@@ -646,7 +646,7 @@ components:
       description: Id da nota
       schema:
         type: string
-      example: nota-ana-matematica-prova1
+      example: nota-Hesdras-matematica-prova1
     TrabalhoId:
       name: id
       in: path
@@ -654,7 +654,7 @@ components:
       description: Id do trabalho
       schema:
         type: string
-      example: trabalho-ana-lista-exercicios-1
+      example: trabalho-Hesdras-lista-exercicios-1
 
   responses:
     BadRequest:
@@ -742,14 +742,14 @@ components:
       properties:
         id:
           type: string
-          example: aluno-ana-souza
+          example: aluno-Hesdras
         nome:
           type: string
-          example: Ana Souza
+          example: Hesdras
         email:
           type: string
           format: email
-          example: ana.souza@example.com
+          example: Hesdras@example.com
         matricula:
           type: string
           example: '2024001'
@@ -769,11 +769,11 @@ components:
       properties:
         nome:
           type: string
-          example: Ana Souza
+          example: Hesdras
         email:
           type: string
           format: email
-          example: ana.souza@example.com
+          example: Hesdrasa@example.com
         matricula:
           type: string
           example: '2024001'
@@ -788,11 +788,11 @@ components:
       properties:
         nome:
           type: string
-          example: Ana Souza
+          example: Hesdras
         email:
           type: string
           format: email
-          example: ana.souza@example.com
+          example: Hesdras@example.com
         matricula:
           type: string
           example: '2024001'
@@ -844,10 +844,10 @@ components:
       properties:
         id:
           type: string
-          example: matricula-ana-matematica
+          example: matricula-Hesdras-matematica
         alunoId:
           type: string
-          example: aluno-ana-souza
+          example: aluno-Hesdras
         disciplinaId:
           type: string
           example: disciplina-matematica
@@ -861,17 +861,17 @@ components:
       properties:
         alunoId:
           type: string
-          example: aluno-ana-souza
+          example: aluno-Hesdras
 
     Nota:
       type: object
       properties:
         id:
           type: string
-          example: nota-ana-matematica-prova1
+          example: nota-Hesdras-matematica-prova1
         alunoId:
           type: string
-          example: aluno-ana-souza
+          example: aluno-Hesdras
         disciplinaId:
           type: string
           example: disciplina-matematica
@@ -904,7 +904,7 @@ components:
       properties:
         alunoId:
           type: string
-          example: aluno-ana-souza
+          example: aluno-Hesdras
         disciplinaId:
           type: string
           example: disciplina-matematica
@@ -944,10 +944,10 @@ components:
       properties:
         id:
           type: string
-          example: trabalho-ana-lista-exercicios-1
+          example: trabalho-Hesdras-lista-exercicios-1
         alunoId:
           type: string
-          example: aluno-ana-souza
+          example: aluno-Hesdras
         disciplinaId:
           type: string
           example: disciplina-matematica
